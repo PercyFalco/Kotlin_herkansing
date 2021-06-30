@@ -1,8 +1,9 @@
-open class functions (val name: String, var hp: Int, var lives: Int)
-{
+//Combat
+open class Functions(val name: String, var hitpoints: Int, var life: Int, var level: Int) {
     val inventory = ArrayList<Loot>()
-    val weapon = weapon("weapon", 10)
-    open fun takeDMG(weapon: weapon)
+    val weapon = Weapon("weapon", 10)
+
+    open fun takeDamage(weapon: Weapon)
     {
         var damage = weapon.vardamageInflicted
         var remainingHitpoints = hitpoints - damage
@@ -13,32 +14,29 @@ open class functions (val name: String, var hp: Int, var lives: Int)
             hitpoints = remainingHitpoints
             println("$name took $damage points of damage and has $hitpoints left.")
         }
+
         else
         {
-            if (lives < 1)
-            {
-                lives -= 1
+            if (life < 1) {
+                life -= 1
                 println("$name has lost a life")
+            } else {
+                println("$name is dead! $name has no more lives left")
+                life -= 1
             }
-            else
-            {
-               println("$name is dead! $name has made the wrong choices")
-               lives -= 1
-            }
-
         }
+
+
     }
 
 
-    //inventory system
-    fun showINV()
-    {
+    //Inventory
+    fun showInventory() {
         println("$name's Inventory:")
         for (item in inventory)
         {
-            println("name: ${item.name} \\\\ worth : ${item.value}")
+            println("name: ${item.name} \\ worth: ${item.value}")
         }
-        println("===============================")
+        println("============================")
     }
-
 }

@@ -1,7 +1,8 @@
-//Loot sort
-enum class LootType {
-    Armor,Weapon, Potion
+//Loot Types
+enum class LootType{
+    ARMOR, WEAPON
 }
+//Loot Values
+class Loot(val name: String, val lootType: LootType, val value: Int){
 
-//Loot
-class Loot(val name: String, val lootType: LootType, val value: Int)
+}
