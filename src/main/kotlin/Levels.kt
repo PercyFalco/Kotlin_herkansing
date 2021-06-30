@@ -7,7 +7,10 @@ class Levels() {
 
 
         //weapons
-
+        val Gun = Weapon("PeW PeWs", 1)
+        val wongfu = Weapon("Wong Fu",1)
+        val shockwave = Weapon("Shockwave",1)
+        val Bomb = Weapon("Bomb", 1)
 
 
         //player
@@ -18,14 +21,15 @@ class Levels() {
             println("Please enter a valid character name")
             username = readLine()
         }
-        val player = Player("$username", 3, 3, 9)
+        val player = Player("$username", 1, 1, 14)
 
 
         //inventory
+        val pistol = Loot("PeW pEwS", LootType.WEAPON, 1913)
+        val gloves = Loot("Gloves", LootType.WEAPON, 2446)
 
 
-
-
+        //intro
         println("You are $username you are a part of the mutated race of the Dumdon.\n" +
                 "as a child you trained with you muma and papo Wong fu.\n" +
                 "Wong fu is the only reason why the tree of life still stands.\n" +
@@ -33,7 +37,7 @@ class Levels() {
                 "The tree makes sure there is life in this wasteland.\n" +
                 "But the word is being threatened.\n" +
                 "By so called world eaters.\n" +
-                "The world eaters are slowly eating the roods of the tree of life.\n" +
+                "The world eaters are slowly eating the roots of the tree of life.\n" +
                 "these world eaters are stationed at each root of the tree.\n" +
                 "The Jumbo puff at the western root.\n" +
                 "The Porky Puff at the eastern root.\n" +
@@ -45,8 +49,14 @@ class Levels() {
                 "You surf with you upgraded Goo Glider to the western root.\n" +
                 "Once arrived at the root you see the Jumbo Puff jumping off the root and landing in the water.\n" +
                 "Type next to continue.")
+                player.inventory.add(gloves)
+                player.inventory.add(pistol)
+                player.showInventory()
                 var line : String?
                 line = readLine()!!.toLowerCase()
+
+
+
 
         while (line != "next"){
             println("Wrong input please try again.")
@@ -56,7 +66,7 @@ class Levels() {
                 "The water is making waves cause of the vibrations of the scream.\n" +
                 "You surf the waves with your Goo Glider.\n" +
                 "You look around you and see mines in the water.\n" +
-                "You could use your grappling hook to attach guide the bombs next to the Jumbo Puff.\n" +
+                "You could use your grappling hook to attach the bombs onto your hook.\n" +
                 "Or you could use your brand new pew pews and use your knowledge of wong fu.\n" +
                 "Type next to continue")
                 line = readLine()!!.toLowerCase()
@@ -70,23 +80,24 @@ class Levels() {
             line = readLine()!!.toLowerCase()
         }
 
-        println("what will you choice be?\n " +
-                "hook or fight\n" +
+        println("What will you choice be?\n " +
+                "Hook or fight\n" +
                 "Type your choice.\n")
         line = readLine()!!.toLowerCase()
 
+
         if (line == "fight") {
             println("You run towards the Jumbo Puff.\n" +
-                    "what are going to use you brand new pew pews or wong fu\n" +
-                    "type pew or wong fu\n"+
+                    "What are going to use you brand new pew pews or wong fu\n" +
+                    "Type pew or wong fu\n"+
                     "Type your choice.\n")
             line = readLine()
 
             if(line == "pew") {
-                println("you grab you pew pews out of your pocket\n" +
+                println("You grab you pew pews out of your pocket\n" +
                         "With your finger on the trigger.\n" +
                         "You shoot your whole magazine empty.\n" +
-                        "you reload you pew pews as fast as can.\n" +
+                        "You reload you pew pews as fast as can.\n" +
                         "The Jumbo Puff is preparing a attack.\n" +
                         "The Jumbo Puff stands on his back feets.\n" +
                         "\"boem!\" the Jumbo Puff creates a huge wave on the ground.\n" +
@@ -95,15 +106,20 @@ class Levels() {
                          line = readLine()!!.toLowerCase()
                          if(line == "jump"){
                              println("You jump over the shockwave.\n" +
-                             "you continue to keep firing your pew pews.\n" +
+                             "You continue to keep firing your pew pews.\n" +
                              "The world eater was starting to crumble.\n " +
                              "You run towards its mouth and fire your last bullet.\n" +
                              "You won.\n" +
                              "Only 3 more to go.")
+                             jumboPuff.takeDamage(Gun)
+                             player.showLives()
                          }
-                         else if (line == "Block") {
+                         else if (line == "block") {
                              println("You prepare yourself for the shockwave.\n " +
-                                     "you tried to block the attack but sadly did not succeed.")
+                                     "You tried to block the attack but sadly did not succeed.")
+                                      player.takeDamage(shockwave)
+                                      player.showLives()
+
                          }
 
 
@@ -116,6 +132,8 @@ class Levels() {
                         "After 10 minutes of full one beating the shit out of the Jumbo Puff it goes down\n" +
                         "You won and saved the western root from destruction\n" +
                         "3 more to go")
+                        jumboPuff.takeDamage(wongfu)
+                        player.showLives()
 
                 }
         }
@@ -132,6 +150,8 @@ class Levels() {
                     "You shoot your last bullet in your magazine at the bomb.\n" +
                     "\"Boem!\" The Jumbo Puff heads explodes into small pieces.\n" +
                     "Only 3 more to go!")
+                    jumboPuff.takeDamage(Bomb)
+                    player.showLives()
         }
 
 

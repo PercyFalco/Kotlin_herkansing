@@ -3,7 +3,7 @@ open class Functions(val name: String, var hitpoints: Int, var life: Int, var le
     val inventory = ArrayList<Loot>()
     val weapon = Weapon("weapon", 10)
 
-    //takedamage
+    //take damage function
     open fun takeDamage(weapon: Weapon)
     {
         var damage = weapon.vardamageInflicted
@@ -15,6 +15,8 @@ open class Functions(val name: String, var hitpoints: Int, var life: Int, var le
             hitpoints = remainingHitpoints
             println("$name took $damage points of damage and has $hitpoints left.")
         }
+
+
 
         //lives checker
         else
@@ -32,7 +34,7 @@ open class Functions(val name: String, var hitpoints: Int, var life: Int, var le
     }
 
 
-    //Inventory
+    //show Inventory function
     fun showInventory() {
         println("$name's Inventory:")
         for (item in inventory)
