@@ -58,8 +58,82 @@ class Levels() {
                 "You look around you and see mines in the water.\n" +
                 "You could use your grappling hook to attach guide the bombs next to the Jumbo Puff.\n" +
                 "Or you could use your brand new pew pews and use your knowledge of wong fu.\n" +
-                "Type hook for grappling the bombs or type fight to fight the Jumbo Puff head on")
+                "Type next to continue")
                 line = readLine()!!.toLowerCase()
+
+
+
+
+        //Fight Jumbo Puff
+        while (line != "next"){
+            println("Wrong input please try again.")
+            line = readLine()!!.toLowerCase()
+        }
+
+        println("what will you choice be?\n " +
+                "hook or fight\n" +
+                "Type your choice.\n")
+        line = readLine()!!.toLowerCase()
+
+        if (line == "fight") {
+            println("You run towards the Jumbo Puff.\n" +
+                    "what are going to use you brand new pew pews or wong fu\n" +
+                    "type pew or wong fu\n"+
+                    "Type your choice.\n")
+            line = readLine()
+
+            if(line == "pew") {
+                println("you grab you pew pews out of your pocket\n" +
+                        "With your finger on the trigger.\n" +
+                        "You shoot your whole magazine empty.\n" +
+                        "you reload you pew pews as fast as can.\n" +
+                        "The Jumbo Puff is preparing a attack.\n" +
+                        "The Jumbo Puff stands on his back feets.\n" +
+                        "\"boem!\" the Jumbo Puff creates a huge wave on the ground.\n" +
+                        "Jump or Block")
+                }
+                         line = readLine()!!.toLowerCase()
+                         if(line == "jump"){
+                             println("You jump over the shockwave.\n" +
+                             "you continue to keep firing your pew pews.\n" +
+                             "The world eater was starting to crumble.\n " +
+                             "You run towards its mouth and fire your last bullet.\n" +
+                             "You won.\n" +
+                             "Only 3 more to go.")
+                         }
+                         else if (line == "Block") {
+                             println("You prepare yourself for the shockwave.\n " +
+                                     "you tried to block the attack but sadly did not succeed.")
+                         }
+
+
+            else if(line == "wong fu") {
+                println("You run towards the beast with your gloves.\n" +
+                        "You jump on the beast its head and try smashing it into pieces.\n" +
+                        "The beast was trying to get you off but you did not give in.\n" +
+                        "You slide to the beast forehead and smash his eyes.\n" +
+                        "Now the beast could not see you smash it till it goes down\n" +
+                        "After 10 minutes of full one beating the shit out of the Jumbo Puff it goes down\n" +
+                        "You won and saved the western root from destruction\n" +
+                        "3 more to go")
+
+                }
+        }
+
+        else if(line == "hook") {
+            println("You hook a bomb with the Goo Glider\n" +
+                    "You surf towards the Jumbo Puff.\n" +
+                    "You drop the bomb right next to his front right feet" +
+                    "You grab you pew pews and shoot the bomb.\n" +
+                    "\"Boem!!\" The bomb explodes and the Jumbo Puff falls down.\n" +
+                    "Its not dead yet.\n" +
+                    "You grab another bomb and place it at his head this time.\n" +
+                    "The Jumbo Puff looks at you and screams.\n" +
+                    "You shoot your last bullet in your magazine at the bomb.\n" +
+                    "\"Boem!\" The Jumbo Puff heads explodes into small pieces.\n" +
+                    "Only 3 more to go!")
+        }
+
 
 
     }
