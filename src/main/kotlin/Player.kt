@@ -1,5 +1,6 @@
 //Player Value paramaters
-class Player(name: String, hitpoints: Int, life: Int, level: Int) : Functions(name, hitpoints, life, level) {
+class Player(name: String, hitpoints: Int, life: Int, level: Int) : Functions(name, hitpoints, life, level)
+{
 
     //Lives
     fun showLives() {
